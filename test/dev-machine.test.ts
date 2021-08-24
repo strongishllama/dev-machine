@@ -5,7 +5,12 @@ import * as DevMachine from '../lib/dev-machine-stack';
 test('Empty Stack', () => {
     const app = new cdk.App();
     // WHEN
-    const stack = new DevMachine.DevMachineStack(app, 'MyTestStack');
+    const stack = new DevMachine.DevMachineStack(app, 'MyTestStack', {
+      env: {
+        account: '',
+        region: ''
+      }
+    });
     // THEN
     expectCDK(stack).to(matchTemplate({
       "Resources": {}
