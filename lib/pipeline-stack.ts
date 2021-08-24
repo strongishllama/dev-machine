@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 import * as pipelines from '@aws-cdk/pipelines';
+import * as secretsmanager from '@aws-cdk/aws-secretsmanager';
 import { DevMachineApplication } from './dev-machine-application';
 
 export class PipelineStack extends cdk.Stack {
@@ -8,7 +9,9 @@ export class PipelineStack extends cdk.Stack {
 
     const pipeline = new pipelines.CodePipeline(this, 'pipeline', {
       synth: new pipelines.ShellStep('synth', {
-        input: pipelines.CodePipelineSource.gitHub('strongishllama/dev-machine', 'main'),
+        input: pipelines.CodePipelineSource.gitHub('strongishllama/dev-machine', 'main', {
+          authentication: secretsmanager.Secret.fromSecretCompleteArn(this, 'secret', 'arn:aws:secretsmanager:ap-southeast-2:320045747480:secret:GithubPersonalAccessToken-ko08in').secretValue
+        }),
         commands: [
           'npm ci',
           'npm run build',
