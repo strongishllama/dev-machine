@@ -17,7 +17,8 @@ export class PipelineStack extends cdk.Stack {
           'npm run build',
           'npx cdk synth'
         ]
-      })
+      }),
+      dockerEnabledForSynth: true
     });
 
     pipeline.addStage(new DevMachineApplication(this, 'prod', {
