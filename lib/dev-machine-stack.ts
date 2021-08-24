@@ -30,7 +30,7 @@ export class DevMachineStack extends cdk.Stack {
       role: new iam.Role(this, 'role', {
         assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com'),
         managedPolicies: [
-          iam.ManagedPolicy.fromManagedPolicyArn(scope, 'smm-access', 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore')
+          iam.ManagedPolicy.fromManagedPolicyArn(this, 'smm-access', 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore')
         ]
       })
     });
