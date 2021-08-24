@@ -36,7 +36,7 @@ export class DevMachineStack extends cdk.Stack {
     });
 
     // Create the shutdown function.
-    const shutdownFunction = new lambda_nodejs.NodejsFunction(this, 'shudown',{
+    const shutdownFunction = new lambda_nodejs.NodejsFunction(this, 'shutdown',{
       environment: {
         'INSTANCE_ID': instance.instanceId
       },
