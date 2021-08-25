@@ -65,11 +65,11 @@ export class DevMachineStack extends cdk.Stack {
           InstanceId: instance.instanceId
         }
       }).with({
-        period: cdk.Duration.minutes(15),
+        period: cdk.Duration.minutes(5),
         statistic: cloudwatch.Statistic.SUM,
       }),
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
-      threshold: 60000,
+      threshold: 300000,
       evaluationPeriods: 1,
     });
 
