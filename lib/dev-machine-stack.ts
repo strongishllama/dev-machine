@@ -22,7 +22,7 @@ export class DevMachineStack extends cdk.Stack {
       vpc: ec2.Vpc.fromLookup(this, 'vpc', {
         vpcId: 'vpc-1e217c79'
       }),
-      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3A, ec2.InstanceSize.NANO),
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3A, ec2.InstanceSize.SMALL),
       machineImage: ec2.MachineImage.genericLinux({
         'ap-southeast-2': 'ami-0567f647e75c7bc05'
       }),
@@ -65,7 +65,7 @@ export class DevMachineStack extends cdk.Stack {
           InstanceId: instance.instanceId
         }
       }).with({
-        period: cdk.Duration.minutes(5),
+        period: cdk.Duration.minutes(15),
         statistic: cloudwatch.Statistic.SUM,
       }),
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
