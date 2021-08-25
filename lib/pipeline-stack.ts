@@ -9,7 +9,7 @@ export class PipelineStack extends cdk.Stack {
 
     const pipeline = new pipelines.CodePipeline(this, 'pipeline', {
       synth: new pipelines.ShellStep('synth', {
-        input: pipelines.CodePipelineSource.gitHub('strongishllama/dev-machine', 'main', {
+        input: pipelines.CodePipelineSource.gitHub('strongishllama/dev-machine-cdk', 'main', {
           authentication: secretsmanager.Secret.fromSecretCompleteArn(this, 'secret', 'arn:aws:secretsmanager:ap-southeast-2:320045747480:secret:GithubPersonalAccessToken-ko08in').secretValue
         }),
         commands: [
