@@ -14,6 +14,7 @@ export function userData(): string {
     `wget https://golang.org/dl/go${goVersion}.linux-amd64.tar.gz`,
     'rm -rf /usr/local/go',
     `tar -C /usr/local -xzf go${goVersion}.linux-amd64.tar.gz`,
+    `rm -rf go${goVersion}.linux-amd64.tar.gz`,
     'echo "" >> /home/ubuntu/.profile',
     'echo "# Add Go bin directory to path." >> /home/ubuntu/.profile',
     'echo "export PATH=\$PATH:/usr/local/go/bin" >> /home/ubuntu/.profile',
