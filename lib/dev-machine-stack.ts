@@ -69,7 +69,7 @@ export class DevMachineStack extends cdk.Stack {
         statistic: cloudwatch.Statistic.SUM,
       }),
       comparisonOperator: cloudwatch.ComparisonOperator.LESS_THAN_THRESHOLD,
-      threshold: 300000,
+      threshold: 100000,
       evaluationPeriods: 1,
     });
 
