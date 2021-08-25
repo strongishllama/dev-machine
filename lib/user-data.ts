@@ -20,6 +20,11 @@ export function userData(): string {
     // Install NVM.
     `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${nvmVersion}/install.sh | bash`,
     `nvm install v${nodeVersion}`,
+    // Setup Git.
+    'git config --global user.email taliesinwrmillhouse@gmail.com',
+    'git config --global user.name "Taliesin Millhouse"',
+    'git config core.fileMode false',
+    'git config --global init.defaultBranch main',
     // Create code directory.
     'mkdir -p /home/ubuntu/code',
     'chown ubuntu:ubuntu /home/ubuntu/code'
