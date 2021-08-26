@@ -10,6 +10,8 @@ export function userData(): string {
     // Install updates.
     'apt update',
     'apt upgrade -y',
+    // Install GCC.
+    'apt install gcc -y',
     // Install Go.
     `wget https://golang.org/dl/go${goVersion}.linux-amd64.tar.gz`,
     'rm -rf /usr/local/go',
