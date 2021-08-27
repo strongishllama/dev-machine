@@ -20,9 +20,13 @@ export function userData(): string {
     'echo "" >> /home/ubuntu/.profile',
     'echo "# Add Go bin directory to path." >> /home/ubuntu/.profile',
     'echo "export PATH=\$PATH:/usr/local/go/bin" >> /home/ubuntu/.profile',
+    // Install AWS CLI
+    'apt install awscli -y',
     // Install NVM.
     `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${nvmVersion}/install.sh | bash`,
     `nvm install v${nodeVersion}`,
+    // Install CDK.
+    'npm i -g aws-cdk',
     // Setup Git.
     'git config --global user.email taliesinwrmillhouse@gmail.com',
     'git config --global user.name "Taliesin Millhouse"',
