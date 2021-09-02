@@ -32,7 +32,13 @@ export class DevMachineStack extends cdk.Stack {
         managedPolicies: [
           iam.ManagedPolicy.fromManagedPolicyArn(this, 'smm-access', 'arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore')
         ]
-      })
+      }),
+      blockDevices: [
+        {
+          deviceName: '/dev/sda1',
+          volume: ec2.BlockDeviceVolume.ebs(20)
+        }
+      ]
     });
 
     // Create the shutdown function.
