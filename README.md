@@ -1,4 +1,6 @@
-# Dev Machine
+# Dev Machine CDK
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/strongishllama/dev-machine-cdk/main/LICENSE)
 
 The project contains the CDK infrastructure for my personal dev machine.
 * At its core the dev machine is an EC2 instance that can be connected using the AWS CLI and the [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) Visual Studio Code plugin.
